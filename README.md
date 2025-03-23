@@ -1,2 +1,2 @@
 # SDNDETR
-code will be available here.
+code of SDN-DETR will be available here.
