@@ -1,0 +1,37 @@
+
+__include__: [
+  '../dataset/visdrone_detection.yml',
+  '../runtime.yml',
+  './include/dataloader.yml',
+  './include/optimizer_visdrone.yml',
+  './include/rtdetr_r50vd.yml',
+]
+# VisDrone do not use pretrained weights and multi_scale training(avoid out of memory)
+
+output_dir: ./output/rtdetr_r18vd_300e_p03_dnw1_dn200_b4_annos_visdrone
+epoches: 300
+
+RTDETR:
+  multi_scale: False
+
+PResNet:
+  depth: 18
+  freeze_at: -1
+  freeze_norm: False
+  pretrained: False
+
+HybridEncoder:
+  in_channels: [128, 256, 512]
+  hidden_dim: 256
+  expansion: 0.5
+
+
+RTDETRTransformer:
+  eval_idx: -1
+  num_decoder_layers: 3
+  num_denoising: 200
+
+
+
+
+

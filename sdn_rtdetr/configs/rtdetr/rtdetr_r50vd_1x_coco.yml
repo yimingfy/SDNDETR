@@ -1,0 +1,13 @@
+__include__: [
+  '../dataset/coco_detection.yml',
+  '../runtime.yml',
+  './include/dataloader.yml',
+  './include/optimizer.yml',
+  './include/rtdetr_r50vd.yml',
+]
+
+output_dir: ./output/rtdetr_r50vd_1x_coco_sdn_hsdn_h02_05_p03_dw1_dn200_b8_run2
+epoches: 12
+
+RTDETRTransformer:
+  num_denoising: 200

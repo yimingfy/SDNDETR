@@ -1,0 +1,30 @@
+task: detection
+
+num_classes: 10
+remap_mscoco_category: True
+
+train_dataloader: 
+  type: DataLoader
+  dataset: 
+    type: CocoDetection
+    img_folder: ./dataset/visdrone/VisDrone2019-DET-train/images
+    ann_file: ./dataset/visdrone/annotations/annos_visdrone/instances_train.json
+    transforms:
+      type: Compose
+      ops: ~
+  shuffle: True
+  drop_last: True 
+
+
+val_dataloader:
+  type: DataLoader
+  dataset: 
+    type: CocoDetection
+    img_folder: ./dataset/visdrone/VisDrone2019-DET-val/images
+    ann_file: ./dataset/visdrone/annotations/annos_visdrone/instances_val.json
+    transforms:
+      type: Compose
+      ops: ~ 
+
+  shuffle: False
+  drop_last: False
